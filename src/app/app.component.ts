@@ -27,18 +27,5 @@ this.subscription = this.repoService.reposChanged
 
     }
 
-/*onData(){
-  this.subscription = this.repoService.reposChanged
-    .subscribe(
-      (repos) => {
-        this.repos = repos;
-      }
-    );
-  this.repos = this.repoService.getRepos();
-  console.log(this.repos);
-}*/
-
-
-
 }
 

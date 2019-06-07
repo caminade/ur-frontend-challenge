@@ -23,15 +23,15 @@
 
         <div *ngFor="let repo of repos  | filter : searchText"> <!-- going through the repositories and displaying + a filter to search by repo name-->
             <div class="media text-muted pt-3">
-                <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32">
-                    <rect width="100%" height="100%" fill="#FF0000" /><text x="30%" y="50%" fill="#000001" dy=".4em">{{repo.open_issues_count}}</text>
-                </svg>
-                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark"><i class="fas fa-archive">{{repo.id}}</i> - {{repo.name}} </strong>
-                    <i class="fas fa-star yellow"></i>{{repo.stargazers_count}}
-                    <strong class="d-block text-gray-dark">by: {{repo.owner.login}}</strong>
-                    {{repo.description}}
-                </p>
+               <img src= {{repo.owner.avatar_url}} class="img-thumbnail" alt="avatar" style="height: 100px;
+                   width: 100px; margin-right: 2em">
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <strong class="d-block text-gray-dark"><i class="fas fa-archive"></i>{{repo.name}}</strong>
+                    <p class="bg-light text-dark" style="margin-top: 1em">{{repo.description}}</p> 
+                    <i class="fas fa-star yellow"></i>{{repo.stargazers_count}}  <span class="bg-danger text-white">issues: {{repo.open_issues_count}}</span>
+                     <p>Submitted on {{ repo.created_at | date }} by: <span class="text-primary">{{repo.owner.login}}</span></p>
+                   
+                </div>
             </div>
         </div>
 

@@ -10,7 +10,7 @@ import {RepoService} from './repo.service';
 export class DataService {
 
   public repos;
-  private _URL = 'https://api.github.com/search/repositories?q=created:2019-05-19&sort=stars&order=desc'; //using github api to retrieve the recently created repositories sorted by number of stars
+  private _URL = 'https://api.github.com/search/repositories?q=created:>2019-05-07&sort=stars&order=desc&per_page=100'; //using github api to retrieve the recently created repositories sorted by number of stars
 
   constructor(private http: HttpClient, private slrepo: RepoService) { }
   
@@ -22,7 +22,7 @@ export class DataService {
       .pipe(map(
         (res) => {
           this.slrepo.setRepos(res['items']);
-           // console.log(res['items']);
+            console.log(res['items']);
           return res['items'];
         }
       ))
