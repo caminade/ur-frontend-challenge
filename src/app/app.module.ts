@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { AppComponent } from './app.component';
 import { FilterPipe} from './shared/filter.pipe';
@@ -14,7 +15,8 @@ import { FilterPipe} from './shared/filter.pipe';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule,
+    InfiniteScrollModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

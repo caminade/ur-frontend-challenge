@@ -14,11 +14,13 @@ export class RepoService {
   constructor(private http: HttpClient) {
   }
 
+   //override data of repos 
   setRepos(repositories) {
     this.repos = repositories;
-    this.reposChanged.next(this.repos.slice());
+    this.reposChanged.next(this.repos.slice()); //inform our app that we got new/changed repos
   }
+  
   getRepos() {
-      return this.repos.slice();
+      return this.repos.slice(); //returning repos
   }
 }

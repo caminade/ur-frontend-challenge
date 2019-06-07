@@ -8,8 +8,11 @@
 <!--<li><a
   style="cursor: pointer;"
   (click)="onData()">Get Data</a></li>-->
-<div class="container">
-    <div class="my-3 p-3 bg-white rounded shadow-sm">
+<div class="container" >
+    <div class="my-3 p-3 bg-white rounded shadow-sm"
+        infinite-scroll
+      [infiniteScrollDistance]="2"
+      (scrolled)="onScroll()">
 
         <div class="input-group mb-3">
 
@@ -21,7 +24,7 @@
         </div>
 
 
-        <div *ngFor="let repo of repos  | filter : searchText"> <!-- going through the repositories and displaying + a filter to search by repo name-->
+        <div *ngFor="let repo of repos_list  | filter : searchText"> <!-- going through the repositories and displaying + a filter to search by repo name-->
             <div class="media text-muted pt-3">
                <img src= {{repo.owner.avatar_url}} class="img-thumbnail" alt="avatar" style="height: 100px;
                    width: 100px; margin-right: 2em">

@@ -14,8 +14,26 @@ export class DataService {
 
   constructor(private http: HttpClient, private slrepo: RepoService) { }
   
-    getRepos() {
-    this.http.get<any>(this._URL, {
+    getURL(page: number)  //instead of using _URL we define a method to increment the pages number when scrolling down
+    {  
+        return 'https://api.github.com/search/repositories?q=created:>2019-05-07&sort=stars&order=desc&page='+page;  
+    }  
+//    getRepos() {           //Return 100 results without pagination
+//    this.http.get<any>(this._URL, {
+//      observe: 'body',
+//      responseType: 'json'
+//    })
+//      .pipe(map(
+//        (res) => {
+//          this.slrepo.setRepos(res['items']);
+//            console.log(res['items']);
+//          return res['items'];
+//        }
+//      ))
+//      .subscribe();
+//  }
+     getRepos(page: number) {                       // Return 30 results page by page - with pagination
+    this.http.get<any>(this.getURL(page), {
       observe: 'body',
       responseType: 'json'
     })
