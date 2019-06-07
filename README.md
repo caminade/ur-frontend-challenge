@@ -1,6 +1,10 @@
 # GithubWebchallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+The github webchallenge is an app which is based on the github API, to get specific properties (id, name, author, description, number of issues, number of stars) of the recently created repositories, sorted by the number of stars.
+A feature to search by the name of the repositories is also implemented.
+A pagination feature is implemented to display 30 results at a time.
+
+This small app is deployed and can be checked on https://github-webchallenge.firebaseapp.com/
 
 ## Development server
 
